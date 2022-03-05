@@ -1,0 +1,30 @@
+{
+  "name": "fluffy-potato",
+  "version": "1.0.0",
+  "description": "Project 2: Team 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewpetriella/fluffy-potato.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewpetriella/fluffy-potato/issues"
+  },
+  "homepage": "https://github.com/matthewpetriella/fluffy-potato#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "cookies": "^0.8.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "heroku": "^7.2.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
+  }
+}
