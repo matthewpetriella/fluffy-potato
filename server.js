@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(routes);
+app.use(routes);
 
 app.get('/', (req, res) => {
     res.render('login');
