@@ -37,6 +37,10 @@ User.init(
       validate: {
         len: [4]
       }
+    },
+    avatar: {
+      type: DataTypes.BLOB,
+      allowNull: true,
     }
   },
   {
