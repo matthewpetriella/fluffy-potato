@@ -28,5 +28,7 @@
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
     "sequelize": "^6.17.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
