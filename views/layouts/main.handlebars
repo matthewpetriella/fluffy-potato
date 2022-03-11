@@ -3,20 +3,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
-    />
+
+    <title>Fluffy Potato</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
     <link rel="stylesheet" href="/public/stylesheets/style.css" />
 
   </head>
-  <body>
-    
-    {{{body}}}
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/public/javascript/image-upload.js"></script>
+  <body>
+    <div class="wrapper">
+    <header>
+      <h1>
+        <a href="/">Fluffy Potato</a>
+      </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    <footer>
+      Thanks for visiting!
+    </footer>
+  </div>
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/public/javascript/image-upload.js"></script>
 
   </body>
 </html>

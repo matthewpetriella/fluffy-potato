@@ -1,0 +1,37 @@
+<article class="post">
+  <div class="title">
+    <a href="{{post_url}}" target="_blank">{{title}}</a>
+    <span>({{format_url post_url}})</span>
+  </div>
+  <div class="meta">
+    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
+    |
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  </div>
+</article>
+
+
+<!--this section below is what needs to be add in place of the above code I believe 
+<div class="post-heading">
+    <div class="pull-left image">
+        <img src="./public/images/avatar_matt.png" class="img-circle avatar" alt="user profile image">
+    </div>
+
+    <div class="pull-left meta">
+        <div class="title h5">
+            <a href="#"><b>Matthew Petriella</b></a>
+            uploaded a photo.
+            </div>
+            <h6 class="text-muted time">5 seconds ago</h6>
+        </div>
+    </div>
+
+
+    <div class="post-image">
+        <img src=""><img src="https://via.placeholder.com/400x200" class="image" alt="image post">
+    </div>
+    <div class="post-description">
+        <h4>Photo Description</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat molestias eligendi recusandae laudantium. Voluptatum, blanditiis. Adipisci, illum veniam saepe error quo ipsam doloremque inventore rerum eum debitis! Laborum, quia ipsa?</p>
+    </div>
+</div>  -->
