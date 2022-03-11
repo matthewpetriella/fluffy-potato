@@ -38,10 +38,7 @@ User.init(
         len: [4]
       }
     },
-    avatar: {
-      type: DataTypes.BLOB,
-      allowNull: true,
-    }
+
   },
   {
     hooks: {
