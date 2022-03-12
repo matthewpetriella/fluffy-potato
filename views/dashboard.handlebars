@@ -1,4 +1,4 @@
-<section>
+{{!-- <section>
   <h2>Create New Post</h2>
 
   <form class="new-post-form">
@@ -28,4 +28,20 @@
 </section>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
+<script src="/javascript/add-post.js"></script> --}}
+
+  <section>
+    <h2>Your Blog Posts</h2>
+    <br>
+    <a href="/dashboard/new" class="add-link">Create New</a>
+    <ul class="dashboard-posts" style="list-style-type:none;">
+      {{#each posts as |post|}}
+      <li class="user-post">
+        {{!-- brings in the partial --}}
+        {{> post-info post}}
+        {{!-- link to post edit page with specific post by id --}}
+        <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Blog Post</a>
+      </li>
+      {{/each}}
+    </ul>
+  </section>

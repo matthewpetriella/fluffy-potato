@@ -1,4 +1,4 @@
-<article>
+{{!-- <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
     Edit Post
@@ -6,7 +6,7 @@
   <form class="edit-post-form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <span>({{format_url post.description}})</span>
     </div>
     <div>
       {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
@@ -32,4 +32,38 @@
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script> --}}
+
+{{!-- edit post view with linked edit and delete buttons --}}
+
+<article class="post-edit">
+  <a href="/dashboard"> Return to dashboard</a>
+  <h2>
+    Edit Post
+  </h2>
+  <form class="edit-post-form">
+    <div>
+      <input name="post-title" type="text" value="{{post.title}}" />
+    </div>
+    <div>
+        <input type="text" name="post-text" value="{{post.post_text}}" />
+    </div>
+    <button type="submit">Save post</button>
+    <button type="button" class="delete-btn">Delete post</button>
+  </form>
+</article>
+{{!-- included comment form and submit button --}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form>
+{{!-- render available comments --}}
+{{> comments  post.comments }}
 <script src="/javascript/comment.js"></script>
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
