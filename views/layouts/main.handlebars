@@ -18,11 +18,20 @@
         <a href="/">Fluffy Potato</a>
       </h1>
       <nav>
-        {{#if loggedIn}}
+        {{!-- {{#if loggedIn}}
         <a href="/dashboard">Dashboard</a>
         <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
         <a href="/login">Login</a>
+        {{/if}} --}}
+        {{#if loggedIn}}
+        <a class="btn-no-style" href="/">Homepage</a>
+        <a class="btn-no-style" href="/dashboard">Dashboard</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a class="btn-no-style" href="/">Homepage</a>
+        <a class="btn-no-style" href="/dashboard">Dashboard</a>
+        <a class="btn-no-style" href="/login">Login</a>
         {{/if}}
       </nav>
     </header>
@@ -38,8 +47,8 @@
   <script src="/javascript/logout.js"></script>
   {{/if}}
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/public/javascript/image-upload.js"></script>
+  {{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/public/javascript/image-upload.js"></script> --}}
 
   </body>
 </html>
