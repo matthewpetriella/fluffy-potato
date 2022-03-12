@@ -2,6 +2,13 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
+const cloudinary = require('cloudinary').v2;
+// cloudinary.config({
+  // cloud_name: "djrbfeg4e",
+  // api_key: "673832367885364",
+  // api_secret: "lRitPb0N2VE4KB-3HAXAfjJhI3Y"
+// });
+
 
 // get all users
 router.get('/', (req, res) => {
@@ -155,5 +162,29 @@ router.delete('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+router.post("/image-upload", (request, response) => {
+  // collected image from a user
+  const data = {
+    image: request.body.image,
+  }
+
+  // upload image here
+  cloudinary.uploader.upload(data.image)
+  .then((result) => {
+    response.status(200).send({
+      message: "success",
+      result,
+    });
+  }).catch((error) => {
+    response.status(500).send({
+      message: "failure",
+      error,
+    });
+  });
+
+});
+
 
 module.exports = router;
