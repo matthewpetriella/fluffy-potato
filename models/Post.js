@@ -1,47 +1,33 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
 // create our Post model
 class Post extends Model {
-  // like or dislike a post
-  static vote(body, models) {
-    return models.Vote.upsert({
+  static upvote(body, models) {
+    return models.Vote.create({
       user_id: body.user_id,
-      post_id: body.post_id,
-      like: body.like
+      post_id: body.post_id
     }).then(() => {
       return Post.findOne({
         where: {
-          id: body.post_id,
+          id: body.post_id
         },
         attributes: [
-          "id",
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND `like`)"), "likes"],
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND NOT `like`)"), "dislikes"],
-          [sequelize.literal("(SELECT '" + (body.like ? 'like' : 'dislike') + "')"), "vote"]
+          'id',
+          'post_url',
+          'title',
+          'created_at',
+          [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
-      });
-    });
-  }
-
-  // un-like or un-dislike a post
-  static unvote(body, models) {
-    return models.Vote.destroy({
-      where: {
-        user_id: body.user_id,
-        post_id: body.post_id
-      }
-    }).then(() => {
-      return Post.findOne({
-        where: {
-          id: body.post_id,
-        },
-        attributes: [
-          "id",
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND `like`)"), "likes"],
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND NOT `like`)"), "dislikes"],
-          [sequelize.literal("(SELECT 'no-vote')"), "vote"]
-        ],
+        include: [
+          {
+            model: models.Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+              model: models.User,
+              attributes: ['username']
+            }
+          }
+        ]
       });
     });
   }
@@ -60,21 +46,20 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    image_url: {
+    post_url: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false,
+      validate: {
+        isURL: true
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id'
-      },
-    },
+      }
+    }
   },
   {
     sequelize,

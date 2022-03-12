@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Vote extends Model { }
+class Vote extends Model {}
 
 Vote.init(
   {
@@ -9,11 +9,6 @@ Vote.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
-    },
-    like: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -39,6 +34,4 @@ Vote.init(
   }
 );
 
-
 module.exports = Vote;
-
