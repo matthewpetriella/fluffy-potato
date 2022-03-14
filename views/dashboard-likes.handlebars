@@ -1,0 +1,15 @@
+<section>
+  {{> dashboard-titlebar}}
+  {{#if posts.length}}
+  <div id="your-voted-posts" class="dashboard-section">
+    {{!-- shows liked or disliked photos when 'tab' is selected --}}
+    <h3 id="your-posts-title">Your {{tab}} Photos ({{posts.length}})</h3>
+    <ul class="post-list">
+      {{#each posts as |post|}}
+      {{> post-card post}}
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}}
+</section>
+<script src="/javascript/vote.js"></script>

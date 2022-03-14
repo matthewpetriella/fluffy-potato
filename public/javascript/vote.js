@@ -3,7 +3,7 @@ async function voteHandler(event) {
   const likeControlsEl = document.querySelector('#post-' + post_id + '-vote');
   const likeButton = likeControlsEl.querySelector('.vote-input.like');
   const dislikeButton = likeControlsEl.querySelector('.vote-input.dislike');
-
+  // captures which "button" is clicked
   const vote_value = event.target.value;
   const vote_checked = event.target.checked;
 
@@ -13,6 +13,7 @@ async function voteHandler(event) {
   let vote_method = 'POST';
   if (vote_checked) {
     switch (vote_value) {
+      // switch case toggles the vote and has no vote by default
       case 'like':
         vote_body.like = true;
         break;
@@ -33,7 +34,7 @@ async function voteHandler(event) {
       'Content-Type': 'application/json'
     }
   };
-
+  // gathers user input before passing it to vote endpoint
   console.log(fetchOptions);
   const response = await fetch(`/api/posts/vote`, fetchOptions);
 

@@ -1,59 +1,24 @@
-{{!-- {{> post-info post}}
-
-{{#if loggedIn}}
-<form class="comment-form">
+<div></div>
+<article class="post">
   <div>
-    <textarea name="comment-body"></textarea>
+    <a id="title" href="/post/{{post.id}}">
+      <h1 class="post-title">{{post.title}}</h1>
+    </a>
+    <img class="post-image" src="{{post.image_url}}" />
+    <div>
+      Posted by <a href="/user/{{post.user.post_author_id}}">{{post.user.post_author}}</a>
+      on {{format_date post.created_at}}
+    </div>
   </div>
-
   <div>
-    <button type="submit">add comment</button>
+    <div class="description">{{post.description}}</div>
   </div>
-</form>
+  <div class="social-bar">
+    <div><a id="comment-count" href="/post/{{post.id}}">{{post.comment_count}} {{format_plural 'comment' post.comment_count}}</a></div>
+    {{> like-controls post}}
+  </div>
+</article>
+{{#if showComments}}
+{{> comments}}
 {{/if}}
-<div>
-
-  <h4 class="comments">Comments:</h4>
-  {{> comments  post.comments }}
-
-</div>
-
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
 <script src="/javascript/vote.js"></script>
-{{/if}} --}}
-
-{{!-- provides a link back to dashboard --}}
-
-<a href="/dashboard"> Return to dashboard</a>
-  <br>
-  <br>
-{{!-- uses post-extend to give more info on the post --}}
-<div class="post-wrapper">
-    {{> post-info post }}
-</div>
-<br>
-
-
-{{!-- conditional only shows add comment if logged in --}}
-{{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-{{/if}}
-<div>
-
-  <h4 class="comments">Comments:</h4>
-  {{> comments  post.comments }}
-
-</div>
-
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-{{/if}}

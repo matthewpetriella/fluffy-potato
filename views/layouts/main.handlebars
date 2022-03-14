@@ -1,54 +1,52 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Fluffy Potato</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluffy Potato</title>
+  {{!-- adding font awesome for like/dislike --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
-    <link rel="stylesheet" href="/public/stylesheets/style.css" />
-
-  </head>
-
-  <body>
-    <div class="wrapper">
+<body>
+  <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Fluffy Potato</a>
-      </h1>
-      <nav>
-        {{!-- {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}} --}}
-        {{#if loggedIn}}
-        <a class="btn-no-style" href="/">Homepage</a>
-        <a class="btn-no-style" href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a class="btn-no-style" href="/">Homepage</a>
-        <a class="btn-no-style" href="/dashboard">Dashboard</a>
-        <a class="btn-no-style" href="/login">Login</a>
-        {{/if}}
-      </nav>
+      <section class="header-content">
+        <h1 id="header-logo">Fluffy Potato Photos</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/dashboard">Dashboard</a>
+            </li>
+            <li>
+              {{!-- toggles depending on if the user is signed in or not --}}
+              {{#if loggedIn}}
+              <a href="#" id="logout">Sign Out</a>
+              {{else}}
+              <a href="/login{{#if nextUrl}}?_next={{nextUrl}}{{/if}}">Sign In</a>
+              {{/if}}
+            </li>
+          </ul>
+        </nav>
+      </section>
     </header>
-    <main>
+    <content>
       {{{ body }}}
-    </main>
+    </content>
     <footer>
-      Thanks for visiting!
+      
     </footer>
   </div>
-  
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+</body>
 
-  {{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/public/javascript/image-upload.js"></script> --}}
-
-  </body>
 </html>

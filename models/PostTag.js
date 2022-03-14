@@ -1,33 +1,28 @@
 const { Model, DataTypes } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
-class Vote extends Model {}
+class PostTag extends Model {}
 
-Vote.init(
+PostTag.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    like: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
-    },
-    user_id: {
+    post_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
-        model: 'user',
+        model: 'post',
         key: 'id'
       }
     },
-    post_id: {
+    tag_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
-        model: 'post',
+        model: 'tag',
         key: 'id'
       }
     }
@@ -37,8 +32,8 @@ Vote.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'vote'
+    modelName: 'post_tag',
   }
 );
 
-module.exports = Vote;
+module.exports = PostTag;

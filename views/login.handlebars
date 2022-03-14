@@ -1,35 +1,44 @@
-<!--Source: Module 13 and 14 -->
+<div class="sign-in-card">
+  <div class="sign-in">
+    <h2>Sign In</h2>
+    <form class="signin-form">
+      <div>
+        <input type="text" id="username-login" autocomplete="username" placeholder="username" />
+      </div>
+      <div>
+        <input type="password" id="password-login" autocomplete="current-password" placeholder="password" />
+      </div>
+      <div>
+        <button id="sign-in-btn" type="submit">sign in</button>
+      </div>
+    </form>
+    <p class="center small">Don't have an account? <a id="sign-up-switch" href="#">Sign up!</a></p>
+  </div>
+  <div id="login-error" class="hidden">
+  </div>
 
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
+  <div class="sign-up hidden">
+    <h2>Sign Up</h2>
+    <form class="signup-form">
+      <div>
+        <input type="text" id="username-signup" autocomplete="off" placeholder="username" />
+      </div>
+      <div>
+        <input type="text" id="email-signup" autocomplete="email" placeholder="email" />
+      </div>
+      <div>
+        <input type="text" id="nickname-signup" autocomplete="name" placeholder="nickname" />
+      </div>
+      <div>
+        <input type="password" id="password-signup" autocomplete="new-password" placeholder="password" />
+      </div>
+      <div>
+        <button id="sign-up-btn" type="submit">sign up</button>
+      </div>
+    </form>
+    <p class="center small">Already have an account? <a id="sign-in-switch" href="#">Sign in!</a></p>
   </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
+  <div id="sign-up-error" class="hidden">
   </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
-
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
-
+</div>
 <script src="/javascript/login.js"></script>

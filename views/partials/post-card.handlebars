@@ -1,0 +1,22 @@
+<article id="post-{{id}}" class="post">
+  <div class="spd1">
+    <a id="title" href="/post/{{id}}">
+      <h1 class="post-title">{{title}}</h1>
+    </a>
+    {{#if image_url}}
+    <img class="place-image small" src="{{image_url}}" />
+    {{/if}}
+    <div class="post-byline">
+      Posted by <a href="/user/{{user.post_author_id}}">{{user.post_author}}</a>
+      on {{format_date created_at}}
+    </div>
+  </div>
+  <div class="spd2">
+    <div class="description">{{description}}</div>
+  </div>
+    <div class="social-bar">
+  {{!-- shows how many comments have been made on photo post --}}
+      <p><a id="comment-count" href="/post/{{id}}">{{comment_count}} comments</a></p>
+      {{> like-controls this}}
+    </div>
+</article>

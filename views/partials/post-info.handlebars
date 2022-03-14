@@ -1,68 +1,31 @@
-{{!-- <article class="post">
-  <div class="title">
-    <a href="{{description}}" target="_blank">{{title}}</a>
-    <span>({{format_url description}})</span>
-  </div>
-  <div class="meta">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
-    |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-  </div>
-</article> --}}
-
-<article class="post-wrapper">
-    <div class="post-title">
-        <a href="/post/{{id}}">{{title}}</a>
+<div class="post-toolbar">
+  <span>Posted {{format_date created_at}}</span>
+  {{#if allowEdit}}
+  <span class="edit-post-btn"><i class="far fa-edit"></i> <a href="/dashboard/edit/{{id}}">
+      Edit</a></span>
+  {{/if}}
+</div>
+<article class="post">
+  <div class="spd1">
+    <a id="title" href="/post/{{id}}">
+      <h1 class="post-title">{{title}}</h1>
+    </a>
+    <div class="dashboard-image-wrap">
+      {{#if image_url}}
+      <img class="place-image" src="{{image_url}}" title="{{image_url}}" />
+      {{else}}
+      {{!-- placeholder image made part of files for Heroku migration --}}
+      <img class="embedded-map" src="/images/no-post-image.png" /></a>
+      {{/if}}
     </div>
-    <div class="description">
-        <p class="description">
-            {{description}} 
-        </p>
-        <br>
-        <p class="author-info">
-        by {{user.username}} on
-        {{format_date created_at}}
-        </p>
-    </div>
+  </div>
+  <div class="spd2">
+    <div class="description">{{description}}</div>
+  </div>
+  <div class="social-bar">
+    {{!-- shows how many comments have been made on photo post --}}
+    <p><a id="comment-count" href="/post/{{id}}">{{comment_count}} {{format_plural "comment"
+        comment_count}}</a></p>
+    {{> like-controls this}}
+  </div>
 </article>
-
-
-{{!-- <article class="post-wrapper">
-    <div class="post-title">
-        <a href="/post/{{id}}">{{title}}</a>
-        <p> {{format_date created_at}}</p>
-    </div>
-    <div class="description">
-        <p>{{description}}</p>
-       
-
-
-    </div>
-</article> --}}
-
-
-
-<!--this section below is what needs to be add in place of the above code I believe 
-<div class="post-heading">
-    <div class="pull-left image">
-        <img src="./public/images/avatar_matt.png" class="img-circle avatar" alt="user profile image">
-    </div>
-
-    <div class="pull-left meta">
-        <div class="title h5">
-            <a href="#"><b>Matthew Petriella</b></a>
-            uploaded a photo.
-            </div>
-            <h6 class="text-muted time">5 seconds ago</h6>
-        </div>
-    </div>
-
-
-    <div class="post-image">
-        <img src=""><img src="https://via.placeholder.com/400x200" class="image" alt="image post">
-    </div>
-    <div class="post-description">
-        <h4>Photo Description</h4>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat molestias eligendi recusandae laudantium. Voluptatum, blanditiis. Adipisci, illum veniam saepe error quo ipsam doloremque inventore rerum eum debitis! Laborum, quia ipsa?</p>
-    </div>
-</div>  -->

@@ -1,7 +1,8 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-// create our Post model
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+
 class Post extends Model {
+  // like or dislike a post
   static vote(body, models) {
     return models.Vote.upsert({
       user_id: body.user_id,
@@ -43,6 +44,50 @@ class Post extends Model {
       });
     });
   }
+
+  // tag a post is not being used at this time
+  static tag(body, models) {
+    return models.PostTag.create({
+      post_id: body.post_id,
+      tag_id: body.tag_id
+    }).then(() => {
+      return Post.findOne({
+        where: {
+          id: body.post_id,
+        },
+        attributes: [
+          "id"
+        ],
+        include: {
+          model: models.Tag,
+          attributes: ['tag_name']
+        }
+      });
+    });
+  }
+
+  // remove a tag from a post is not being used at this time
+  static untag(body, models) {
+    return models.PostTag.destroy({
+      where: {
+        post_id: body.post_id,
+        tag_id: body.tag_id
+      }
+    }).then(() => {
+      return Post.findOne({
+        where: {
+          id: body.post_id,
+        },
+        attributes: [
+          "id"
+        ],
+        include: {
+          model: models.Tag,
+          attributes: ['tag_name']
+        }
+      });
+    });
+  }
 }
 
 // create fields/columns for Post model
@@ -52,36 +97,33 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    image: {
+    image_url: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isUrl: true,
-      },
+      allowNull: true
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id'
-      }
-    }
+        model: "user",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post'
+    modelName: "post",
   }
 );
 

@@ -1,0 +1,65 @@
+<section>
+  {{> dashboard-titlebar}}
+  <div class="dashboard-section">
+    <div class="profile">
+      <div>
+        <h4>Hi {{user.nickname}}!</h4>
+        <p>
+          Welcome to your Fluffy Potato account dashboard!
+          <br><br>
+          Here you can manage your existing photo posts, post a new photo, or
+          check out the photos you've liked and disliked.
+        </p>
+      </div>
+      {{!-- gives a space between message and account info. Can be removed if account info will be relocated --}}
+      <div class="profile-separator">&nbsp;</div>
+      <div class="profile-card">
+        <p style="margin:0;padding:0;text-align:center;">Your Account Info</p>
+        {{!-- user can update account info --}}
+        <form class="update-form">
+          <div>
+            <input type="text" id="username-update" autocomplete="username" placeholder="username"
+              value="{{user.username}}" />
+          </div>
+          <div>
+            <input type="text" id="email-update" autocomplete="email" placeholder="email" value="{{user.email}}" />
+          </div>
+          <div>
+            <input type="text" id="nickname-update" autocomplete="name" placeholder="nickname"
+              value="{{user.nickname}}" />
+          </div>
+          <div>
+            <input type="password" id="password-update" autocomplete="new-password" placeholder="new password" />
+          </div>
+          <div>
+            <button id="update-btn" type="submit">update</button>
+          </div>
+          <div id="update-message">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="your-posts" class="dashboard-section">
+  <h3>Your Photo Posts ({{posts.length}})<div class="post-toolbar">
+    sends to 
+      <span class="add-post-btn"><i class="fas fa-plus"></i> <a href="/dashboard/create">Post a photo!</a></span>
+    </div>
+  </h3>
+{{!-- renders photos if there are any.  If not, a message is shown telling the user --}}
+  {{#if posts.length}}
+  <ul class="post-list">
+    {{#each posts as |post|}}
+    <li class="your-post">
+      {{> post-info post}}
+    </li>
+    {{/each}}
+  </ul>
+  {{else}}
+  <p style="text-align:center">You haven't posted any photos yet.</p>
+  {{/if}}
+</section>
+<script src="/javascript/vote.js"></script>
+<script src="/javascript/dashboard.js"></script>

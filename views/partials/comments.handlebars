@@ -1,13 +1,40 @@
-<div class="comments">
-  {{#each this}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}} on {{format_date created_at}}
-    </div>
-    <div class="text">
-      {{comment_text}}
-      <a href="/single/edit/{{id}}">Edit</a>
-    </div>
-  </section>
-  {{/each}}
-</div>
+{{!-- simple comment form --}}
+
+<section id="comments" class="comments">
+  <h3>Comments</h3>
+  <div>
+    {{#if post.comments.length}}
+    <ul>
+      {{#each post.comments}}
+      <li class="comment">
+        <div id="pre-comment">
+          <div id="comment-user">{{user.nickname}} </div>
+          <div id="comment-date"> {{format_date created_at}} - {{format_time created_at}}</div>
+        </div>
+        <div id="comment-text">
+          {{comment_text}}
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    {{#if this.loggedIn}}
+    <form class="comment-form">
+      <div>
+        <textarea id="text-input" name="comment-body" placeholder="Leave a comment..."></textarea>
+      </div>
+      <div>
+        <button id="add-comment-btn" class="btn save-btn" type="submit">add comment</button>
+      </div>
+    </form>
+    {{else}}
+    {{#unless post.comments.length}}
+    {{!-- shown if there are no comments yet --}}
+    <p><em>No comments yet.</em></p>
+    {{/unless}}
+    {{/if}}
+  </div>
+</section>
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

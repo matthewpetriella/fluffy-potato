@@ -1,69 +1,51 @@
-{{!-- <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
+{{!-- give a path back to dashboard --}}
+<a href="/dashboard"> &larr; Back to dashboard</a>
+<div style="margin:1rem 0">
+  <h2>{{#if post.id}}Edit Your{{else}}Create A New{{/if}} Photo Post</h2>
+</div>
+
+<article class="edit-post">
+  <form id="edit-form">
+    <input type="hidden" name="id" value="{{#if post.id}}{{post.id}}{{/if}}" />
+    {{!-- tags have been left off for now.  Possibly future development --}}
+    <input type="hidden" name="tag-ids" value="" />
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.description}})</span>
+      <label for="title">Title:</label><br>
+      <input class="post-input" type="text" name="title" {{#if post.id}} value="{{post.title}}" {{/if}}
+        placeholder="Give your photo a title" />
     </div>
     <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      <label for="description">Description:</label><br>
+      <textarea id="text-input" name="description" rows="5"
+        placeholder="Describe your photo">{{#if post.description}}{{post.description}}{{/if}}</textarea>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <div>
+      {{!-- photo can be user provided URL or uploaded from user's device --}}
+      <label for="image-url">Photo:</label><br>
+      <div id="image-url-wrap">
+        <input class="post-input" type="text" name="image-url" {{#if post.id}} value="{{post.image_url}}" {{/if}}
+          {{!-- &nbsp; is a non-breaking space --}}
+          placeholder="Photo URL" />&nbsp;or&nbsp;<button id="upload-image">upload photo</button>
+      </div>
+    </div>
+    <div class="post-toolbar">
+      <div>
+        <button class="btn save-btn" type="submit">Save</button>
+        {{#if post.id}}<button type="button" id="delete-post-btn" class="btn delete-btn">Delete</button>{{/if}}
+      </div>
+      {{#if post.id}}<div>created on {{format_date post.created_at}}</div>{{/if}}
+    </div>
   </form>
 </article>
 
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
 
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-
-{{> comments post.comments}}
-
+{{#if post.id}}
+{{> comments this}}
+{{/if}}
+{{!-- image upload widget uploads image to cloudinary and makes a secure URL available for the image --}}
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 <script src="/javascript/edit-post.js"></script>
+{{#if post.id}}
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script> --}}
-
-{{!-- edit post view with linked edit and delete buttons --}}
-
-<article class="post-edit">
-  <a href="/dashboard"> Return to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-    </div>
-    <div>
-        <input type="text" name="post-text" value="{{post.post_text}}" />
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-btn">Delete post</button>
-  </form>
-</article>
-{{!-- included comment form and submit button --}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-{{!-- render available comments --}}
-{{> comments  post.comments }}
 <script src="/javascript/comment.js"></script>
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
+{{/if}}

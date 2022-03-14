@@ -1,7 +1,25 @@
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+<div class="title-bar">
+  <h1 id="homepage-header">Some Cool Photos To Check Out</h1>
+  {{#if loggedIn}}
+  <div>
+    {{!-- sort by tag - not currently functional --}}
+      {{#if tag_string}}<option value="all-posts" selected="selected">{{tag_string}} spots</option>{{/if}}
+    </select>
+  </div>
+  {{/if}}
+</div>
+{{#if posts.length}}
+{{!-- sort photos by latest posted, most likes, and with comments --}}
+<div class="sort-controls">
+  Sort:
+  <a href="?order=recent">latest</a> |
+  <a href="?order=likes">rating</a> |
+  <a href="?order=comments">comments</a>
+</div>
+{{#each posts as |post|}}
+{{> post-card post}}
+{{/each}}
+{{else}}
+<p class="no-results">{{no_results}}</p>
+{{/if}}
+<script src="/javascript/vote.js"></script>

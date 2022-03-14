@@ -1,8 +1,9 @@
 // import the Sequelize constructor from the library
 const Sequelize = require('sequelize');
-require('dotenv').config();
 
-//JAWSDB
+require('dotenv').config(); // Passes database name, username, and password securely
+
+// create connection to our database, pass in your MySQL information for username and password
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
@@ -14,5 +15,7 @@ if (process.env.JAWSDB_URL) {
     port: 3306
   });
 }
+// The new Sequelize() function accepts the database name, MySQL username, and MySQL password (respectively) as parameters, 
+// then we also pass configuration settings. Once we're done, we simply export the connection.
 
 module.exports = sequelize;
