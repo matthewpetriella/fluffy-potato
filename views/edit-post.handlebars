@@ -46,8 +46,11 @@
       <input name="post-title" type="text" value="{{post.title}}" />
     </div>
     <div>
-        <input type="text" name="post-text" value="{{post.post_text}}" />
+        <input type="text" name="post-text" value="{{post.description}}" />
     </div>
+    <img class="place-image" src="{{image_url}}" title="{{image_url}}" />
+
+
     <button type="submit">Save post</button>
     <button type="button" class="delete-btn">Delete post</button>
   </form>

@@ -2,25 +2,19 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
-const cloudinary = require('cloudinary').v2;
-// cloudinary.config({
-  // cloud_name: "djrbfeg4e",
-  // api_key: "673832367885364",
-  // api_secret: "lRitPb0N2VE4KB-3HAXAfjJhI3Y"
-// });
 
 
 // get all users
 router.get('/', (req, res) => {
-  console.log('======================');
   Post.findAll({
+    order: [['created_at', 'DESC']],
     attributes: [
       'id',
       'title',
       'description',
+      'image_url',
       'user_id',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -53,9 +47,9 @@ router.get('/:id', (req, res) => {
       'id',
       'title',
       'description',
+      'image_url',
       'user_id',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -90,6 +84,7 @@ router.post('/', withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
     description: req.body.description,
+    image_url: req.body.image_url,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -100,29 +95,31 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // these must come before the /:id route to avoid being considered a post id
-router.post('/vote', withAuth, (req, res) => {
-  Post.vote({ ...req.body, user_id: req.session.user_id }, { Vote })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-      console.log(err);
-      res.status(400).json(err);
-    });
-});
+// router.post('/vote', withAuth, (req, res) => {
+//   Post.vote({ ...req.body, user_id: req.session.user_id }, { Vote })
+//     .then(dbPostData => res.json(dbPostData))
+//     .catch(err => {
+//       console.log(err);
+//       res.status(400).json(err);
+//     });
+// });
 
-router.delete('/vote', withAuth, (req, res) => {
-  Post.unvote({ ...req.body, user_id: req.session.user_id }, { Vote })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-      console.log(err);
-      res.status(400).json(err);
-    });
-});
+// router.delete('/vote', withAuth, (req, res) => {
+//   Post.unvote({ ...req.body, user_id: req.session.user_id }, { Vote })
+//     .then(dbPostData => res.json(dbPostData))
+//     .catch(err => {
+//       console.log(err);
+//       res.status(400).json(err);
+//     });
+// });
 
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      image_url: req.body.image_url
+
     },
     {
       where: {
@@ -164,27 +161,27 @@ router.delete('/:id', withAuth, (req, res) => {
 });
 
 
-router.post("/image-upload", (request, response) => {
-  // collected image from a user
-  const data = {
-    image: request.body.image,
-  }
+// router.post("/image-upload", (request, response) => {
+//   // collected image from a user
+//   const data = {
+//     image: request.body.image,
+//   }
 
-  // upload image here
-  cloudinary.uploader.upload(data.image)
-  .then((result) => {
-    response.status(200).send({
-      message: "success",
-      result,
-    });
-  }).catch((error) => {
-    response.status(500).send({
-      message: "failure",
-      error,
-    });
-  });
+//   // upload image here
+//   cloudinary.uploader.upload(data.image)
+//     .then((result) => {
+//       response.status(200).send({
+//         message: "success",
+//         result,
+//       });
+//     }).catch((error) => {
+//       response.status(500).send({
+//         message: "failure",
+//         error,
+//       });
+//     });
 
-});
+// });
 
 
 module.exports = router;
