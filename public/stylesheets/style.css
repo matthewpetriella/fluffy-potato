@@ -229,3 +229,11 @@
   .form-control {
     width: 90%;
   }
+
+  form > div {
+    margin-bottom: 2%;
+  }
+  
+  form label {
+    display: block;
+  }
