@@ -1,49 +1,51 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // create our Post model
-class Post extends Model {
-  static vote(body, models) {
-    return models.Vote.upsert({
-      user_id: body.user_id,
-      post_id: body.post_id,
-      like: body.like
-    }).then(() => {
-      return Post.findOne({
-        where: {
-          id: body.post_id,
-        },
-        attributes: [
-          "id",
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND `like`)"), "likes"],
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND NOT `like`)"), "dislikes"],
-          [sequelize.literal("(SELECT '" + (body.like ? 'like' : 'dislike') + "')"), "vote"]
-        ],
-      });
-    });
-  }
+class Post extends Model { }
 
-  // un-like or un-dislike a post
-  static unvote(body, models) {
-    return models.Vote.destroy({
-      where: {
-        user_id: body.user_id,
-        post_id: body.post_id
-      }
-    }).then(() => {
-      return Post.findOne({
-        where: {
-          id: body.post_id,
-        },
-        attributes: [
-          "id",
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND `like`)"), "likes"],
-          [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND NOT `like`)"), "dislikes"],
-          [sequelize.literal("(SELECT 'no-vote')"), "vote"]
-        ],
-      });
-    });
-  }
-}
+
+//   static vote(body, models) {
+//     return models.Vote.upsert({
+//       user_id: body.user_id,
+//       post_id: body.post_id,
+//       like: body.like
+//     }).then(() => {
+//       return Post.findOne({
+//         where: {
+//           id: body.post_id,
+//         },
+//         attributes: [
+//           "id",
+//           [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND `like`)"), "likes"],
+//           [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND NOT `like`)"), "dislikes"],
+//           [sequelize.literal("(SELECT '" + (body.like ? 'like' : 'dislike') + "')"), "vote"]
+//         ],
+//       });
+//     });
+//   }
+
+//   // un-like or un-dislike a post
+//   static unvote(body, models) {
+//     return models.Vote.destroy({
+//       where: {
+//         user_id: body.user_id,
+//         post_id: body.post_id
+//       }
+//     }).then(() => {
+//       return Post.findOne({
+//         where: {
+//           id: body.post_id,
+//         },
+//         attributes: [
+//           "id",
+//           [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND `like`)"), "likes"],
+//           [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id AND NOT `like`)"), "dislikes"],
+//           [sequelize.literal("(SELECT 'no-vote')"), "vote"]
+//         ],
+//       });
+//     });
+//   }
+// }
 
 // create fields/columns for Post model
 Post.init(
@@ -61,9 +63,17 @@ Post.init(
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+      validate: {
+        len: [1],
+      }
+    },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id'

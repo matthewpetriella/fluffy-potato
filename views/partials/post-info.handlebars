@@ -10,7 +10,7 @@
   </div>
 </article> --}}
 
-<article class="post-wrapper">
+{{!-- <article class="post-wrapper">
     <div class="post-title">
         <a href="/post/{{id}}">{{title}}</a>
     </div>
@@ -24,6 +24,35 @@
         {{format_date created_at}}
         </p>
     </div>
+</article> --}}
+
+<div class="post-toolbar">
+  <span>Posted {{format_date created_at}}</span>
+  {{!-- {{#if allowEdit}}
+  <span class="edit-post-btn"><i class="far fa-edit"></i> <a href="/dashboard/edit/{{id}}">
+      Edit</a></span>
+  {{/if}} --}}
+</div>
+<article class="post">
+  <div class="spd1">
+    <a id="titttle" href="/post/{{id}}">
+      <h1 class="post-title">{{title}}</h1>
+    </a>
+    <div class="dashboard-image-wrap">
+      {{#if image_url}}
+      <img class="place-image" src="{{image_url}}" title="{{image_url}}" />
+      {{else}}
+      <img class="embedded-map" src="/images/no-post-image.png" /></a>
+      {{/if}}
+    </div>
+  </div>
+  <div class="spd2">
+    <div class="description">{{description}}</div>
+  </div>
+  {{!-- <div class="social-bar">
+    <p><a id="comment-count" href="/post/{{id}}">{{comment_count}} {{format_plural "comment"
+        comment_count}}</a></p>
+  </div> --}}
 </article>
 
 {{!-- <article class="post-wrapper">
