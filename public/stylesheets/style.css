@@ -1,11 +1,14 @@
 * {
-  /*  background-image: url('./images/bg-img.jpg');
-    background-position: center;
-    background-size: cover; */
+    font-family: 'Playfair Display', serif;
     align-items: center;
     justify-content: center;
   }
   
+  body {
+    background-image: url("../../images/bg-img.png");
+    background-color: #454545;
+    
+  }
   /* Header Stylings */
   header {
     margin: auto;
@@ -36,10 +39,6 @@
   
   /* Body Stylings */
   /* source: https://www.bootdey.com/snippets/view/User-profile-with-post-list#html*/
-  
-  body {
-   
-  }
   
   .profile-widget {
     margin: auto;
