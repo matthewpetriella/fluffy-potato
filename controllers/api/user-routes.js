@@ -58,7 +58,8 @@ router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    avatar_url: req.body.avatar_url
   })
     .then(dbUserData => {
       req.session.save(() => {
