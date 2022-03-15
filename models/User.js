@@ -31,6 +31,10 @@ User.init(
         isEmail: true
       }
     },
+    avatar_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
