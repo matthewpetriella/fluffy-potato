@@ -202,3 +202,30 @@ main {
   background: none;
   color: #3486eb;
 }
+
+.dashboard-posts .post {
+  max-width: 350px;
+}
+
+.post-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+/* gap: 1rem; */
+margin-top: 2rem;
+}
+
+.post-left {
+ grid-column: 1;
+ grid-row: 2/3;
+ margin: 0 2rem 0 1.5rem;
+}
+
+.post-right {
+  grid-column: 2/4;
+  grid-row: 1/4;
+}
+
+.post-edit-link {
+grid-column: 2;
+grid-row: 4;
+}

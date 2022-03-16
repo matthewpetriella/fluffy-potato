@@ -54,6 +54,7 @@ router.get('/', withAuth, (req, res) => {
       //const avatarURL = posts[0].user.avatar_url;
       //console.log("Url is "+ avatarURL);
       res.render('dashboard', { posts, loggedIn: true, userAvatar });
+
     })
     .catch(err => {
       console.log(err);
