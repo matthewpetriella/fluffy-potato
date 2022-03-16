@@ -33,8 +33,10 @@
   <section>
     <h2>Your Blog Posts</h2>
     <img src="{{userAvatar}}" />
+    {{user.username}}
+    {{!-- <img src="{{comments.user.avatar_url}}" alt="{{posts.user.username}}"/> --}}
     <br>
-    <a href="/dashboard/new" class="add-link">Create New</a>
+    <a href="/dashboard/new" class="add-link edit-post-btn">Create New</a>
     <ul class="dashboard-posts" style="list-style-type:none;">
       {{#each posts as |post|}}
       <li class="user-post">
