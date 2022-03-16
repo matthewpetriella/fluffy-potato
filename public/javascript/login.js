@@ -8,7 +8,7 @@ var avatarUploadWidget = cloudinary.createUploadWidget(
     if (!error && result && result.event === "success") {
       console.log('Done! Here is the image info: ', result.info);
       // document.querySelector('input[name="avatar-url"]').value = result.info.secure_url;
-      document.querySelector('input[name="avatar-url"]').value = `http://res.cloudinary.com/djrbfeg4e/image/upload/w_110,h_110,c_thumb,r_max/${result.info.public_id}`;
+      document.querySelector('input[name="avatar-url"]').value = `https://res.cloudinary.com/djrbfeg4e/image/upload/w_90,h_90,c_thumb,r_max/${result.info.public_id}`;
     }
   }
 )

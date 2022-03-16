@@ -32,6 +32,9 @@
 <div class="post-wrapper">
     {{> post-info post }}
 </div>
+{{#if loggedIn}}
+  <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Blog Post</a>
+{{/if}}
 <br>
 
 
@@ -51,7 +54,6 @@
 
   <h4 class="comments">Comments:</h4>
   {{> comments  post.comments }}
-
 </div>
 
 {{#if loggedIn}}
