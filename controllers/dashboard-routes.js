@@ -18,6 +18,7 @@ router.get('/', withAuth, (req, res) => {
     }
     else {
       userAvatar = dbUserData.avatar_url;
+      userName = dbUserData.username;
       console.log("Avatar URL is  " + userAvatar);
     }
   });
@@ -53,7 +54,7 @@ router.get('/', withAuth, (req, res) => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
       //const avatarURL = posts[0].user.avatar_url;
       //console.log("Url is "+ avatarURL);
-      res.render('dashboard', { posts, loggedIn: true, userAvatar });
+      res.render('dashboard', { posts, loggedIn: true, userAvatar, userName });
 
     })
     .catch(err => {
