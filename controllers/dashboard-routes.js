@@ -7,6 +7,21 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
+
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    }
+  }).then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'User Not Found' });
+    }
+    else {
+      userAvatar = dbUserData.avatar_url;
+      console.log("Avatar URL is  " + userAvatar);
+    }
+  });
+
   Post.findAll({
     where: {
       user_id: req.session.user_id
@@ -36,8 +51,10 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      // console.log(posts);
-      res.render('dashboard', { posts, loggedIn: true });
+      //const avatarURL = posts[0].user.avatar_url;
+      //console.log("Url is "+ avatarURL);
+      res.render('dashboard', { posts, loggedIn: true, userAvatar });
+
     })
     .catch(err => {
       console.log(err);

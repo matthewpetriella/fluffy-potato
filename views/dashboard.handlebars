@@ -29,19 +29,21 @@
 {{/if}}
 
 <script src="/javascript/add-post.js"></script> --}}
-
   <section>
-      <h2>Your Posted Photos</h2>
-      <br>
-      <a href="/dashboard/new" class="add-link">Create New</a>
-      <ul class="dashboard-posts" style="list-style-type:none;">
-        {{#each posts as |post|}}
-        <li class="user-post  post-container">
-          <a href="/dashboard/edit/{{post.id}}" class="post-edit-link">Edit Photo Post</a>
-          {{!-- brings in the partial --}}
-          {{> post-info post}}
-          {{!-- link to post edit page with specific post by id --}}
-        </li>
-        {{/each}}
-      </ul>
+    <h2>Your Blog Posts</h2>
+    <img src="{{userAvatar}}" />
+    {{user.username}}
+    {{!-- <img src="{{comments.user.avatar_url}}" alt="{{posts.user.username}}"/> --}}
+    <br>
+    <a href="/dashboard/new" class="add-link edit-post-btn">Create New</a>
+    <ul class="dashboard-posts" style="list-style-type:none;">
+      {{#each posts as |post|}}
+      <li class="user-post">
+        {{!-- brings in the partial --}}
+        {{> post-info post}}
+        {{!-- link to post edit page with specific post by id --}}
+        <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Blog Post</a>
+      </li>
+      {{/each}}
+    </ul>
   </section>
