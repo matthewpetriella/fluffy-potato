@@ -50,8 +50,7 @@ const exphbs = require('express-handlebars');
 require('dotenv').config()
 
 const app = express();
-const cloudinary = require('cloudinary');
-
+const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
@@ -93,5 +92,5 @@ app.use(require('./controllers/'));
 //   app.listen(PORT, () => console.log('Now listening'));
 // });
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
