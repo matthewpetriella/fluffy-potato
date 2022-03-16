@@ -27,17 +27,20 @@
 </article> --}}
 
 <div class="post-toolbar">
-  <span>Posted {{format_date created_at}}</span>
-    {{#if user.avatar_url}}
-    <img class="place-avatar" src="{{user.avatar_url}}" />
-    {{else}}
-    <img class="embedded-map" src="https://icon-library.com/icon/generic-user-icon-24.html.html" /></a>
-    {{/if}}
+  <span>Posted {{format_date created_at}}</span>&nbsp;<span>By {{user.username}}</span>
   {{!-- {{#if allowEdit}}
   <span class="edit-post-btn"><i class="far fa-edit"></i> <a href="/dashboard/edit/{{id}}">
       Edit</a></span>
   {{/if}} --}}
 </div>
+  <span>
+
+    {{#if user.avatar_url}}
+    <img class="place-avatar" src="{{user.avatar_url}}" />
+    {{else}}
+    <img class="embedded-map" src="../../images/generic-user-icon-24.jpg" /></a>
+    {{/if}}
+  </span>
 <article class="post">
   <div class="spd1">
     <a id="title" href="/post/{{id}}">
