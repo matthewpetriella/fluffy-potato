@@ -30,5 +30,12 @@
   <div class="spd2">
     <div class="description">{{description}}</div>
   </div>
+  <div>
+    {{#if loggedIn}}
+      {{#if user_id}}
+    <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Blog Post</a>
+      {{/if}}
+    {{/if}}
+  </div>
 </article>
 
