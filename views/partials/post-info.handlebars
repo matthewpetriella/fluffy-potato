@@ -7,6 +7,7 @@
       {{#if user.avatar_url}}
       <img class="place-avatar" src="{{user.avatar_url}}" />
       {{else}}
+      {{!-- generic user icon in case user did not upload their own --}}
       <img class="embedded-map" src="../../images/generic-user-icon-24.jpg" /></a>
       {{/if}}
     </span>
@@ -20,6 +21,8 @@
       {{#if image_url}}
       <img class="place-image" src="{{image_url}}" title="{{image_url}}" />
       {{else}}
+            {{!-- avatar is required - this is added as a failsafe --}}
+
       <img class="embedded-map" src="/images/no-post-image.png" /></a>
       {{/if}}
     </div>

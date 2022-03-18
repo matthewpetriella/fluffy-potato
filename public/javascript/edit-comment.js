@@ -16,11 +16,7 @@ async function editFormHandler(event) {
         
     });
 // this will take the user back to the post page that had the comment
-// must still refresh the page to see updated info
     if (response.ok && history.length > 0) {
-        // window.history.back(-2);
-        // location.reload();
-        // returns to originating page (post with comments)
         window.location = document.referrer;
 
     } else {

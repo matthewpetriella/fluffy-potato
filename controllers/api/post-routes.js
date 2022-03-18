@@ -38,6 +38,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// get specific post
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -79,8 +80,9 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+// post creation
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', description: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
     description: req.body.description,
@@ -94,25 +96,7 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-// these must come before the /:id route to avoid being considered a post id
-// router.post('/vote', withAuth, (req, res) => {
-//   Post.vote({ ...req.body, user_id: req.session.user_id }, { Vote })
-//     .then(dbPostData => res.json(dbPostData))
-//     .catch(err => {
-//       console.log(err);
-//       res.status(400).json(err);
-//     });
-// });
-
-// router.delete('/vote', withAuth, (req, res) => {
-//   Post.unvote({ ...req.body, user_id: req.session.user_id }, { Vote })
-//     .then(dbPostData => res.json(dbPostData))
-//     .catch(err => {
-//       console.log(err);
-//       res.status(400).json(err);
-//     });
-// });
-
+// post update - includes image
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
@@ -140,6 +124,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+// delete specific post
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({
@@ -159,29 +144,5 @@ router.delete('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
-
-// router.post("/image-upload", (request, response) => {
-//   // collected image from a user
-//   const data = {
-//     image: request.body.image,
-//   }
-
-//   // upload image here
-//   cloudinary.uploader.upload(data.image)
-//     .then((result) => {
-//       response.status(200).send({
-//         message: "success",
-//         result,
-//       });
-//     }).catch((error) => {
-//       response.status(500).send({
-//         message: "failure",
-//         error,
-//       });
-//     });
-
-// });
-
 
 module.exports = router;

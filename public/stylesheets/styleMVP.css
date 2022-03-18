@@ -107,6 +107,12 @@ footer {
 /* comments.handlebars MVP */
 .comment-form {
   margin-bottom: 5%;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.text-area {
+  width: 100%;
 }
 
 .comment {
@@ -211,12 +217,16 @@ main {
 .dashboard-posts .post {
   max-width: 350px;
 }
+.homepage-posts .post {
+  max-width: 350px;
+}
+
 
 .post-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* gap: 1rem; */
   margin-top: 2rem;
+  justify-items: center;
 }
 
 .post-left {
@@ -231,6 +241,37 @@ main {
 }
 
 .post-edit-link {
-  grid-column: 2/3;
+  /* grid-column: 2/3; */
   grid-row: 4/5;
+}
+
+.place-image {
+  padding: .5rem;
+}
+
+@media only screen and (max-width: 579px){
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: left;
+}
+
+.post-left {
+justify-self: left;
+}
+
+.post-right {
+  justify-self: left;
+  margin-top: 2rem;
+}
+
+.post-edit-link {
+justify-self: left;
+margin-top: auto;
+padding-right: 2.5rem;
+}
+}
+.dashboard-posts {
+margin-right: 2rem;
 }

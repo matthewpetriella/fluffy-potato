@@ -7,7 +7,8 @@ var imageUploadWidget = cloudinary.createUploadWidget(
   (error, result) => {
     if (!error && result && result.event === "success") {
       console.log('Done! Here is the image info: ', result.info);
-      // document.querySelector('input[name="image-url"]').value = result.info.secure_url;
+            // provides styling to image before rendered
+
       document.querySelector('input[name="image-url"]').value = `https://res.cloudinary.com/djrbfeg4e/image/upload/w_300,c_pad,r_20/${result.info.public_id}`;
     }
   }
@@ -45,6 +46,7 @@ async function editFormHandler(event) {
     alert(response.statusText);
   }
 }
+// activates the image widget
 
 document.querySelector('#upload-image').addEventListener('click', function (event) {
   event.preventDefault();
