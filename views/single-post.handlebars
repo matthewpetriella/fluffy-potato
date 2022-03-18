@@ -30,19 +30,30 @@
   <br>
 {{!-- uses post-extend to give more info on the post --}}
 <div class="post-wrapper">
-    {{> post-info post }}
+    {{!-- {{> post-info post }}
 </div>
 {{#if loggedIn}}
   <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Blog Post</a>
 {{/if}}
-<br>
+<br> --}}
+<ul class="dashboard-posts" style="list-style-type:none;">
+      {{!-- {{#each posts as |post|}} --}}
+      <li class="user-post post-container">
+        {{!-- brings in the partial --}}
+        {{> post-info post}}
+        {{!-- link to post edit page with specific post by id --}}
+        
+        {{!-- <a href="/dashboard/edit/{{post.id}}" class="post-edit-link">Edit Blog Post</a> --}}
+      </li>
+      {{!-- {{/each}} --}}
+    </ul>
 
 
 {{!-- conditional only shows add comment if logged in --}}
 {{#if loggedIn}}
 <form class="comment-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea class="text-area" name="comment-body"></textarea>
   </div>
 
   <div>
