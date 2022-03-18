@@ -5,9 +5,6 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
-  console.log('======================');
-
   User.findOne({
     where: {
       id: req.session.user_id
@@ -33,7 +30,6 @@ router.get('/', withAuth, (req, res) => {
       'description',
       'image_url',
       'created_at'
-      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -52,8 +48,6 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      //const avatarURL = posts[0].user.avatar_url;
-      //console.log("Url is "+ avatarURL);
       res.render('dashboard', { posts, loggedIn: true, userAvatar, userName });
 
     })
@@ -115,7 +109,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'description',
       'image_url',
       'created_at'
-      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {

@@ -27,7 +27,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         ],
         })
         .then((dbCommentData) => {
-            // console.log(dbCommentData);
             if (!dbCommentData) {
             res.status(404).json({ message: "No comment found with this id" });
             return;
