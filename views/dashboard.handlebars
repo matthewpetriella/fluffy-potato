@@ -1,9 +1,35 @@
-  <section>
-    <img src="{{userAvatar}}" />
-    <h2>Your Blog Posts</h2>
-    <p style="text-transform: capitalize;">{{userName}}</p>
+  <section class="user-info">
+    <div class="name-pic">
+      <img src="{{userAvatar}}" />
+      <h2>Your Blog Posts</h2>
+      <p style="text-transform: capitalize;">{{userName}}</p>
+    </div>
+    <div class="profile-update">
+      <p style="margin:0;padding:0;text-align:center;">Your Account Info</p>
+      <form class="update-form">
+        <div>
+          <input type="text" id="username-update" autocomplete="username" placeholder="username"
+            value="{{userName}}" />
+        </div>
+        <div>
+          <input type="text" id="email-update" autocomplete="email" placeholder="email" value="{{userEmail}}" />
+        </div>
+        <div>
+          <input type="password" id="password-update" autocomplete="new-password" placeholder="new password" />
+        </div>
+        <div>
+          <input type="text" id="avatar_url-update" autocomplete="avatar_url" placeholder="avatar_url"
+            value="{{userAvatar}}" />
+          <button id="upload-avatar">upload new avatar</button>
+        </div>
+        <div>
+          <button id="update-btn" type="submit">update</button>
+
+        </div>
+      </form>
+    </div>
     <br>
-    <a href="/dashboard/new" class="add-link edit-post-btn">Create New</a>
+    <a href="/dashboard/new/{{user_id}}" class="add-link edit-post-btn">Create New</a>
     <ul class="dashboard-posts" style="list-style-type:none;">
       {{#each posts as |post|}}
       <li class="user-post post-container">
@@ -16,3 +42,10 @@
       {{/each}}
     </ul>
   </section>
+
+  <script
+  src="https://upload-widget.cloudinary.com/global/all.js"
+  type="text/javascript"
+></script>
+<script src="/javascript/edit-user.js"></script>
+
