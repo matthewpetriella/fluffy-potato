@@ -1,0 +1,231 @@
+* {
+  /*  background-image: url('./images/bg-img.jpg');
+    background-position: center;
+    background-size: cover; */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Header Stylings */
+  header {
+    margin: auto;
+    border: 2px solid white;
+    background-color:rgb(228, 228, 228);
+    margin-bottom: 30px;
+  }
+  
+  header h1 {
+    margin: 20px;
+    font-weight: bold;
+    font-size: 36px;
+    display: inline;
+  }
+  
+  header a {
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  header nav {
+    justify-content: space-around;
+    float: right;
+    margin: 10px 10px 10px 10px;
+  }
+  
+  /*================================================================*/
+  
+  /* Body Stylings */
+  /* source: https://www.bootdey.com/snippets/view/User-profile-with-post-list#html*/
+  
+  .profile-widget {
+    margin: auto;
+    position: relative;
+  }
+  
+  .profile-widget .image-container {
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0 10px;
+    border: 1px solid white;
+  }
+  
+  .profile-widget .image-container .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto -60px;
+    display: block;
+    border: 2px solid white;
+  }
+  
+  .details h4 {
+    font-size: 18px;
+  }
+  
+  .profile-widget .details {
+    padding: 30px 15px;
+    text-align: center;
+    border: 2px solid black;
+  }
+  
+  .bio-bg {
+    background-color:rgb(228, 228, 228);
+  }
+  
+  /*================================================================*/
+      
+  /* Panel Stylings */
+  .panel {
+    
+    margin: auto;
+    width: 85%;
+    border-radius: 0;
+    margin-bottom: 30px;
+  }
+  
+  .panel-white {
+    border: 2px solid #ffffff;
+  }
+   
+  /*================================================================*/
+      
+  /* Post Stylings */
+  .post .post-heading {
+    background-color:rgb(132, 152, 189);
+    height: 70px;
+    padding: 20px 15px;
+  }
+  
+  .post .post-heading .avatar {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-right: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  .post .post-heading .meta .title {
+    margin-bottom: 0;
+  }
+  
+  .post .post-heading .meta .title a {
+    color: rgb(0, 0, 0);
+  }
+  
+  .post .post-heading .meta .title a:hover {
+    color: #aaaaaa;
+  }
+  
+  .post .post-heading .meta .time {
+    margin-top: 8px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .post .post-image .image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .post .post-description {
+    background-color: white;
+    padding: 15px;
+  }
+  
+  .post .post-description p {
+    font-size: 14px;
+  }
+  
+  .post .post-description .stats {
+    margin-top: 20px;
+  }
+  
+  .post .post-description .stats .stat-item {
+    display: inline-block;
+    margin-right: 15px;
+    text-decoration: none;
+  }
+  
+  .post .post-description .stats .stat-item .icon {
+    margin-right: 8px;
+  }
+  
+  .post .post-description .stats .stat-item .icon:hover {
+    color: purple;
+    margin-right: 8px;
+  }
+  
+  .post .post-footer {
+    border-top: 1px solid #ddd;
+    padding: 15px;
+    background-color:rgb(228, 228, 228);
+  }
+  
+  .input-group {
+    width: 100%;
+  }
+  
+  .post .post-footer .input-group-addon a {
+    color: #454545;
+  }
+  
+  .post .post-footer .comments-list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+  }
+  
+  .post .post-footer .comments-list .comment {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .post .post-footer .comments-list .comment .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  .post .post-footer .comments-list .comment .comment-heading {
+    display: block;
+    width: 100%;
+  }
+  
+  .post .post-footer .comments-list .comment .comment-heading .user {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline;
+    margin-top: 0;
+    margin-right: 10px;
+  }
+  
+  .post .post-footer .comments-list .comment .comment-heading .time {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 0;
+    display: inline;
+  }
+  
+  .post .post-footer .comments-list .comment .comment-body {
+    margin-left: 50px;
+    border-bottom: 1px solid rgb(122, 122, 122);
+  }
+  
+  .post .post-footer .comments-list .comment > .comments-list {
+    margin-left: 50px;
+  }
+  
+  /*================================================================*/
+  .post-heading {
+    border: 2px solid black;
+  }
+  
+  .post-description {
+    border: 2px solid black;
+  }
+  
+  .form-control {
+    width: 90%;
+  }

@@ -1,0 +1,55 @@
+  <section class="user-info">
+    <div class="name-pic">
+      <img src="{{userAvatar}}" />
+      <h2>Your Blog Posts</h2>
+      <p style="text-transform: capitalize;">{{userName}}</p>
+    </div>
+    {{!-- onclick event to change hidden style to block for update form --}}
+    <a onclick="profileUpdate()">Update Your Account Info</a>
+    <div id="profile-update" class="profile-update">
+      <form class="update-form">
+        <div>Username
+          <input type="text" id="username-update" autocomplete="username" placeholder="username" value="{{userName}}" />
+
+        </div>
+        <div>Email
+          <input type="text" id="email-update" autocomplete="email" placeholder="email" value="{{userEmail}}" />
+
+        </div>
+        <div>Password
+          <input type="text" id="password-update" autocomplete="password" placeholder="password" />
+
+        </div>
+        <div>Avatar
+          <input type="text" id="avatar_url-update" autocomplete="avatar_url" placeholder="avatar_url" value="{{userAvatar}}" />
+          <button id="upload-avatar">upload new avatar</button>
+
+        </div>
+        <div>
+          <button id="update-btn" type="submit">update</button>
+        </div>
+
+      </form>
+    </div>
+    <br>
+    <a href="/dashboard/new/{{user_id}}" class="add-link edit-post-btn">Create New</a>
+    <ul class="dashboard-posts" style="list-style-type:none;">
+      {{#each posts as |post|}}
+      <li class="user-post post-container">
+        {{!-- brings in the partial --}}
+        {{> post-info post}}
+        {{!-- link to post edit page with specific post by id --}}
+        
+        <a href="/dashboard/edit/{{post.id}}" class="post-edit-link">Edit Blog Post</a>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <script
+  src="https://upload-widget.cloudinary.com/global/all.js"
+  type="text/javascript"
+></script>
+<script src="/javascript/edit-user.js"></script>
+<script src="/javascript/profile-update.js"></script>
+
