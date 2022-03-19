@@ -27,7 +27,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         ],
         })
         .then((dbCommentData) => {
-            // console.log(dbCommentData);
             if (!dbCommentData) {
             res.status(404).json({ message: "No comment found with this id" });
             return;
@@ -35,12 +34,17 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
             // serialize the data
             const comment = dbCommentData.get({ plain: true });
+            if(comment.user_id == req.session.user_id) {
 
             res.render('edit-comment', {
                 comment,
-                loggedIn: true
-            });
-    })
+                loggedIn: true,
+                user_id: true
+            })
+        } else {
+            res.render(`error`)
+        }
+    });
 });
 
 module.exports = router;

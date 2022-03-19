@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
+
 
 // get all users
 router.get('/', (req, res) => {
@@ -13,6 +15,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// get single user
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -32,12 +35,6 @@ router.get('/:id', (req, res) => {
           attributes: ['title']
         }
       }
-      // {
-      //   model: Post,
-      //   attributes: ['title'],
-      //   through: Vote,
-      //   as: 'voted_posts'
-      // }
     ]
   })
     .then(dbUserData => {
@@ -53,8 +50,9 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+// make a new user with avatar
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -76,8 +74,9 @@ router.post('/', (req, res) => {
     });
 });
 
+
+// existing user login/validate
 router.post('/login', (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
       email: req.body.email
@@ -105,6 +104,8 @@ router.post('/login', (req, res) => {
   });
 });
 
+
+// existing user logout/terminate session
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -116,27 +117,56 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
-  // pass in req.body instead to only update what's passed through
-  User.update(req.body, {
-    individualHooks: true,
-    where: {
-      id: req.params.id
+// update user
+router.put('/', withAuth, (req, res) => {
+  if (req.session.loggedIn) {
+
+    const savedSession = req.session;
+
+    const updateData = {};
+    if (req.body.username) {
+      updateData.username = req.body.username;
     }
-  })
-    .then(dbUserData => {
-      if (!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id' });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    if (req.body.email) {
+      updateData.email = req.body.email;
+    }
+    if (req.body.password) {
+      updateData.password = req.body.password;
+    }
+    if (req.body.avatar_url) {
+      updateData.avatar_url = req.body.avatar_url;
+    }
+    console.log('update user', updateData);
+    User.update(
+      updateData,
+      {
+        individualHooks: true,
+        where: {
+          id: req.session.user_id
+        }
+      })
+      .then(dbUserData => {
+        if (!dbUserData[0]) {
+          res.status(404).json({ message: 'No user found with this id' });
+          return;
+        }
+        req.session.save(() => {
+          // update the relevant bits in the stored session
+          req.session.user_id = savedSession.user_id;
+          req.session.username = req.body.username ? req.body.username : savedSession.username;
+          req.session.loggedIn = true;
+  
+          res.json({ user: dbUserData, message: 'User information updated.' });
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  } else {
+    res.status(403).json('Permission denied.')
+  }
 });
 
 router.delete('/:id', (req, res) => {

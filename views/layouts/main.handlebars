@@ -9,6 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
     <link rel="stylesheet" href="/stylesheets/styleMVP.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
   </head>
 
@@ -19,12 +20,7 @@
         <a href="/">Fluffy Potato</a>
       </h1>
       <nav>
-        {{!-- {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}} --}}
+        {{!-- screen render is determined by logged in status --}}
         {{#if loggedIn}}
         <a class="btn-no-style" href="/">Homepage</a>
         <a class="btn-no-style" href="/dashboard">Dashboard</a>
@@ -47,9 +43,6 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
-
-  {{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/public/javascript/image-upload.js"></script> --}}
 
   </body>
 </html>

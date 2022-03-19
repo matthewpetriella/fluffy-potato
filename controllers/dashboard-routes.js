@@ -5,8 +5,23 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
-  console.log('======================');
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    }
+  }).then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'User Not Found' });
+    }
+    else {
+      userAvatar = dbUserData.avatar_url;
+      userName = dbUserData.username;
+      userPassword = dbUserData.password;
+      userEmail = dbUserData.email;
+      console.log("Avatar URL is  " + userAvatar);
+    }
+  });
+
   Post.findAll({
     where: {
       user_id: req.session.user_id
@@ -17,7 +32,6 @@ router.get('/', withAuth, (req, res) => {
       'description',
       'image_url',
       'created_at'
-      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -25,7 +39,7 @@ router.get('/', withAuth, (req, res) => {
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username', 'avatar_url']
+          attributes: ['username']
         }
       },
       {
@@ -36,8 +50,8 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      console.log("Here is the post object  " + posts);
-      res.render('dashboard', { posts, loggedIn: true });
+      res.render('dashboard', { posts, loggedIn: true, userAvatar, userName, userPassword, userEmail });
+
     })
     .catch(err => {
       console.log(err);
@@ -72,7 +86,7 @@ router.get('/new', withAuth, (req, res) => {
       {
         model: User,
         // gets username for post
-        attributes: ['username']
+        attributes: ['username', 'avatar_url']
       }
     ]
   })
@@ -97,7 +111,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'description',
       'image_url',
       'created_at'
-      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -110,7 +123,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'avatar_url']
       }
     ]
   })
@@ -118,9 +131,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
       if (dbPostData) {
         const post = dbPostData.get({ plain: true });
 
+        
         res.render('edit-post', {
           post,
-          loggedIn: true
+          loggedIn: true,
+          user_id: true
         });
       } else {
         res.status(404).end();
