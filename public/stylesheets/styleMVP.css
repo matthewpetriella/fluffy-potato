@@ -287,3 +287,7 @@ display: flex;
 .profile-update {
   justify-self: right;
 } */
+
+.profile-update {
+  display: none;
+}

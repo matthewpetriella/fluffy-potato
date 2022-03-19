@@ -4,20 +4,21 @@
       <h2>Your Blog Posts</h2>
       <p style="text-transform: capitalize;">{{userName}}</p>
     </div>
-    <div class="profile-update">
-      <p style="margin:0;padding:0;text-align:center;">Your Account Info</p>
+    <a onclick="profileUpdate()">Update Your Account Info</a>
+    <div id="profile-update" class="profile-update">
+      {{!-- <p>Your Account Info</p> --}}
       <form class="update-form">
-        <div>
+        <div>Username
           <input type="text" id="username-update" autocomplete="username" placeholder="username"
             value="{{userName}}" />
         </div>
-        <div>
+        <div>Email
           <input type="text" id="email-update" autocomplete="email" placeholder="email" value="{{userEmail}}" />
         </div>
-        <div>
+        <div>Password
           <input type="password" id="password-update" autocomplete="new-password" placeholder="new password" />
         </div>
-        <div>
+        <div>Avatar
           <input type="text" id="avatar_url-update" autocomplete="avatar_url" placeholder="avatar_url"
             value="{{userAvatar}}" />
           <button id="upload-avatar">upload new avatar</button>
@@ -48,4 +49,5 @@
   type="text/javascript"
 ></script>
 <script src="/javascript/edit-user.js"></script>
+<script src="/javascript/profile-update.js"></script>
 
