@@ -127,7 +127,12 @@ footer {
 .post {
   border: 2px solid black;
 }
-  
+
+/* dashboard.handlebars MVP */
+.dashboard-posts {
+  max-width: 300px;
+}
+
 /*overall styling forMVP*/
 a {
   text-decoration: none;

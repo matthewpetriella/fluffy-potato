@@ -169,31 +169,31 @@
     color: #454545;
   }
   
-  .post .post-footer .comments-list {
+  .comments-list {
     padding: 0;
     margin-top: 20px;
     list-style-type: none;
   }
   
-  .post .post-footer .comments-list .comment {
+  .comments-list .comment {
     display: block;
     width: 100%;
     margin: 20px 0;
   }
   
-  .post .post-footer .comments-list .comment .avatar {
+  .comments-list .comment .avatar {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     border: 2px solid white;
   }
   
-  .post .post-footer .comments-list .comment .comment-heading {
+  .comments-list .comment .comment-heading {
     display: block;
     width: 100%;
   }
   
-  .post .post-footer .comments-list .comment .comment-heading .user {
+  .comments-list .comment .comment-heading .user {
     font-size: 14px;
     font-weight: bold;
     display: inline;
@@ -201,19 +201,19 @@
     margin-right: 10px;
   }
   
-  .post .post-footer .comments-list .comment .comment-heading .time {
+  .comments-list .comment .comment-heading .time {
     font-size: 12px;
     color: #aaa;
     margin-top: 0;
     display: inline;
   }
   
-  .post .post-footer .comments-list .comment .comment-body {
+  .comments-list .comment .comment-body {
     margin-left: 50px;
     border-bottom: 1px solid rgb(122, 122, 122);
   }
   
-  .post .post-footer .comments-list .comment > .comments-list {
+  .comments-list .comment > .comments-list {
     margin-left: 50px;
   }
   

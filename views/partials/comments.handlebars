@@ -1,13 +1,24 @@
-<div class="comments">
+<div class="comments comments-list">
   {{#each this}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}} on {{format_date created_at}}
+  <section class="comment comment-body">
+    <div class="meta comment-heading">
+      <h4 class="user">{{user.username}}</h4>
+      <h5 class="time">{{format_date created_at}}</h5>
     </div>
-    <div class="text">
+    <p class="text">
       {{comment_text}}
       <a href="/single/edit/{{id}}">Edit</a>
-    </div>
+    </p>
   </section>
   {{/each}}
 </div>
+
+<!--test
+<div class="comment-body">
+  <div class="comment-heading">
+      <h4 class="user">Lauren Petriella</h4>
+      <h5 class="time">7 minutes ago</h5>
+  </div>
+  <p>First comment.</p>
+</div>
+-->
