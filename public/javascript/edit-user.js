@@ -1,3 +1,4 @@
+// brings in widget for update
 var avatarUploadWidget = cloudinary.createUploadWidget(
     {
       cloud_name: 'djrbfeg4e',
@@ -12,10 +13,10 @@ var avatarUploadWidget = cloudinary.createUploadWidget(
       }
     }
   )
-
+// user update function
   async function updateFormHandler(event) {
   event.preventDefault();
-
+// gets values from form
   const username = document.querySelector('#username-update').value.trim();
   const email = document.querySelector('#email-update').value.trim();
   const password = document.querySelector('#password-update').value.trim();
