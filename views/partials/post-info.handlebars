@@ -1,19 +1,20 @@
-<article class="post-left">
+<article class="post-left post-h">
   <div class="post-toolbar">
     <span>Posted {{format_date created_at}}</span>&nbsp;<span>By {{user.username}}</span>
   </div>
-    <span>
+  <div class="post-heading"></div>
+    <span class="image">
 
       {{#if user.avatar_url}}
-      <img class="place-avatar" src="{{user.avatar_url}}" />
+      <img class="place-avatar avatar" src="{{user.avatar_url}}" />
       {{else}}
       {{!-- generic user icon in case user did not upload their own --}}
       <img class="embedded-map" src="../../images/generic-user-icon-24.jpg" /></a>
       {{/if}}
     </span>
 </article>
-<article class="post post-right">
-  <div class="spd1">
+<article class="post post-right post-heading">
+  <div class="spd1 post-description">
     <a id="title" href="/post/{{id}}">
       <h1 class="post-title">{{title}}</h1>
     </a>
@@ -27,8 +28,8 @@
       {{/if}}
     </div>
   </div>
-  <div class="spd2">
-    <div class="description">{{description}}</div>
+  <div class="spd2 post-description">
+    <div class="description post-description">{{description}}</div>
   </div>
   <div>
     {{#if loggedIn}}

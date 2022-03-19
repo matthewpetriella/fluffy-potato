@@ -135,6 +135,10 @@
   .post .post-description p {
     font-size: 14px;
   }
+
+  .post .post-description h1 {
+    font-size: 14px;
+  }
   
   .post .post-description .stats {
     margin-top: 20px;
