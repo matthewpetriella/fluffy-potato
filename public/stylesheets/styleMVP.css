@@ -1,13 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #d8d8d8de;
+}
+
+.container {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
 /* login.handlebars MVP */
 
 form {
-  border: 2px solid black;
-  width: 200px;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
-form > div {
-  padding: 10px;
-  margin-bottom: 2%;
+.login-form {
+  width: 75%;
+  margin: auto;
+}
+
+.signup-form {
+  width: 75%;
+  margin: auto;
 }
 
 form label {
@@ -22,15 +50,17 @@ form input {
 
 body,
 html {
+  justify-content: center;
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 header {
+  width: 100%;
   margin: auto;
   border: 2px solid white;
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(206, 152, 81);
   margin-bottom: 30px;
 }
 
@@ -82,19 +112,26 @@ footer {
 /* new-post.handlebars MVP */
 
 .new-post-form {
-  width: 500px;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
   padding: 10px;
-  border: 2px solid black;
 }
 .new-post-form input {
-  width: 350px;
+  width: 75%;
+  margin: auto;
 }
 
 /* edit-post.handlebar MVP */
 .edit-post-form {
-  width: 500px;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
   padding: 10px;
-  border: 2px solid black;
 }
 .edit-post-form input {
   width: 350px;
@@ -116,9 +153,12 @@ footer {
 }
 
 .comment {
-  border: 2px solid black;
-  padding: 1%;
-  margin-bottom: 1%;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .comment:nth-child(odd) {
@@ -134,7 +174,12 @@ footer {
 /* post-info.handlebars MVP */
 
 .post {
-  border: 2px solid black;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 /*overall styling forMVP*/
