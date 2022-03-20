@@ -22,6 +22,15 @@ body {
   margin: auto;
 }
 
+.container-error {
+  width: 50%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
 form {
   width: 50%;
   margin: auto;
