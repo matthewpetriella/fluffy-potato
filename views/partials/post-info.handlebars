@@ -1,9 +1,11 @@
+
 <div class = "container">
   <article class="post-left">
     <div class="post-toolbar">
-      <span>Posted {{format_date created_at}}</span>&nbsp;<span>By {{user.username}}</span>
+      <span>Posted {{format_date created_at}}</span style="text-transform: capitalize;">&nbsp;<span>By {{user.username}}</span>
     </div>
       <span>
+
 
         {{#if user.avatar_url}}
         <img class="place-avatar" src="{{user.avatar_url}}" />
