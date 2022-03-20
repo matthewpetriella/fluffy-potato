@@ -1,12 +1,12 @@
 <div class = "container-dashboard">  
   <section class="user-info">
       <div class="name-pic">
+        <p style="text-transform: capitalize;">{{userName}}</p>
         <img src="{{userAvatar}}" />
         <h2>Your Blog Posts</h2>
-        <p style="text-transform: capitalize;">{{userName}}</p>
       </div>
       {{!-- onclick event to change hidden style to block for update form --}}
-      <a onclick="profileUpdate()">Update Your Account Info</a>
+      <a class="update-link" onclick="profileUpdate()">Update Your Account Info</a>
       <div id="profile-update" class="profile-update">
         <form class="update-form">
           <div>Username
@@ -33,10 +33,11 @@
         </form>
       </div>
       <br>
-      <a href="/dashboard/new/{{user_id}}" class="add-link edit-post-btn">Create New</a>
+      <br>
+      <a href="/dashboard/new/{{user_id}}">Create New</a>
       <ul class="dashboard-posts" style="list-style-type:none;">
         {{#each posts as |post|}}
-        <li class="user-post post-container">
+        <li class="user-post ">
           {{!-- brings in the partial --}}
           {{> post-info post}}
           {{!-- link to post edit page with specific post by id --}}

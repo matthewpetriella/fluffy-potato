@@ -31,9 +31,9 @@ body {
 }
 
 .container-comments {
-  width: 100%;
-  margin: auto;
-  border: 2px solid white;
+  width: 90%;
+  /* margin: auto; */
+  /* border: 2px solid white; */
   background-color: rgb(228, 228, 228);
   margin-bottom: 30px;
   padding: 10px;
@@ -51,7 +51,7 @@ body {
 .container-dashboard {
   width: 75%;
   margin: auto;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   background-color: rgb(228, 228, 228);
   margin-bottom: 30px;
   padding: 10px;
@@ -69,7 +69,7 @@ body {
 .container-editPost {
   width: 75%;
   margin: auto;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   background-color: rgb(228, 228, 228);
   margin-bottom: 30px;
   padding: 10px;
@@ -110,21 +110,29 @@ body {
 .container-singlePost {
   width: 75%;
   margin: auto;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   background-color: rgb(228, 228, 228);
   margin-bottom: 30px;
   padding: 10px;
+}
+
+.comment-form button {
+  margin-top: .25rem;
 }
 
 /* login.handlebars MVP */
 
 form {
   width: 75%;
-  margin: auto;
+  /* margin: auto; */
   border: 2px solid white;
   background-color: rgb(228, 228, 228);
   margin-bottom: 30px;
-  padding: 10px;
+  padding: 8px;
+}
+.comment-form {
+  width: auto;
+  margin-right: 2rem;
 }
 
 .login-form {
@@ -145,6 +153,8 @@ form input {
   background-color: rgb(228, 228, 228);
 }
 
+
+
 /* main.handlebars MVP */
 
 body,
@@ -157,10 +167,11 @@ html {
 
 header {
   width: 100%;
-  margin: auto;
+  /* margin: auto; */
   border: 2px solid white;
   background-color: rgb(206, 152, 81);
   margin-bottom: 30px;
+  padding-bottom: .5rem;
 }
 
 header h1 {
@@ -199,28 +210,37 @@ footer {
 
 /* new-post.handlebars MVP */
 .section-new-post h2 {
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .new-post-form input {
   width: 75%;
   margin: auto;
+
 }
 
 /* edit-post.handlebar MVP */
 .edit-post-form {
-  width: 75%;
-  margin: auto;
+  width: 96%;
+  margin: 2rem 2rem 0 0;
   border: 2px solid white;
   background-color: rgb(228, 228, 228);
   margin-bottom: 30px;
   padding: 10px;
 }
 
+
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
 }
+
+.profile-update {
+  display: none;
+  margin-top: 1rem;
+}
+
 
 /* comments.handlebars MVP */
 
@@ -313,8 +333,46 @@ main {
 
 .place-image {
   width: 100%;
+  padding: 2rem;
+}
+
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2rem;
+  justify-items: center;
+  padding-bottom: 1rem;
+}
+
+.post-left {
+  grid-column: 1;
+  grid-row: 2/3;
+  margin: 0 2rem 0 1.5rem;
+}
+
+.post-right {
+  grid-column: 2/4;
+  grid-row: 1/4;
+}
+
+.post-edit-link {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
+
+.user-post {
+  width: 100%;
+  border: 1px white solid;
+  margin: .5rem 0 .5rem 0;
   padding: .5rem;
 }
+
+.dashboard-posts {
+  margin-right: 2rem;
+  }
+  
+
+/* smaller screen styling - responsive design */
 
 @media only screen and (max-width: 579px){
 .post-container {
@@ -339,22 +397,9 @@ margin-top: auto;
 padding-right: 2.5rem;
 }
 }
-.dashboard-posts {
-margin-right: 2rem;
-}
-
-/* .user-info {
-display: flex;
-}
 
 .name-pic {
-  justify-self: left;
+  margin-bottom: .5rem;
 }
 
-.profile-update {
-  justify-self: right;
-} */
 
-.profile-update {
-  display: none;
-}

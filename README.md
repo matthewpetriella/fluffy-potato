@@ -66,16 +66,18 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Tests
 
 All routes have been thoroughly tested through insomnia
-![homescreen](./images/screenshot-heroku-app.png)
+![login](./images/login-signup.png)
 
-![login](./images/screenshot-heroku-login.png)
+![homescreen](./images/homepage.png)
 
-![single](./images/screenshot-heroku-single.png)
+![dashboard](./images/dashboard.png)
 
-![create](./images/screenshot-heroku-add.png)
+![single](./images/single.png)
+
+![create](./images/new-post.png)
 
 
 ## Questions
 
-If you have any questions, please contact [Mike](mailto:vprmatrix55@gmail.com), Matt, or Kerry via email, or through their GitHub pages [Mike](https://github.com/Mike2481)
+If you have any questions, please contact [Mike](mailto:vprmatrix55@gmail.com), [Matt](mailto:petriellaproductions@gmail.com), or [Kerry](mailto:victory173451@gmail.com) via email, or through their GitHub pages [Mike](https://github.com/Mike2481), [Matt](https://github.com/matthewpetriella), [Kerry](https://github.com/VictoriousOne)
 

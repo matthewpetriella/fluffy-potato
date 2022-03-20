@@ -20,7 +20,7 @@
           class="post-input"
           type="text"
           name="image-url"
-          placeholder="{{post.image_url}}"
+          value="{{post.image_url}}"
         />&nbsp;or&nbsp;<button id="upload-image">Upload NewPhoto</button>
       </div>
 
@@ -33,8 +33,8 @@
   </article>
   {{!-- included comment form and submit button --}}
   <form class="comment-form">
-    <div class = "comment-body" width="100%">
-      <textarea name="comment-body"></textarea>
+    <div>
+      <textarea class="text-area" name="comment-body"></textarea>
     </div>
 
 
@@ -43,9 +43,12 @@
 
     </div>
   </form>
+  <div>
+
+    {{!-- render available comments --}}
+    {{> comments  post.comments }}
+  </div>
 </div>
-{{!-- render available comments --}}
-{{> comments  post.comments }}
 <script
   src="https://upload-widget.cloudinary.com/global/all.js"
   type="text/javascript"
