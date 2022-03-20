@@ -18,6 +18,10 @@ body {
   margin: auto;
 }
 
+.container-comment {
+  margin: auto;
+}
+
 form {
   width: 325px;
   margin: auto;
@@ -135,9 +139,12 @@ footer {
 }
 
 .comment {
-  border: 2px solid black;
-  padding: 1%;
-  margin-bottom: 1%;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .comment:nth-child(odd) {
