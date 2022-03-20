@@ -23,12 +23,22 @@ body {
 }
 
 form {
-  width: 325px;
+  width: 50%;
   margin: auto;
   border: 2px solid white;
   background-color: rgb(228, 228, 228);
   margin-bottom: 30px;
   padding: 10px;
+}
+
+.login-form {
+  width: 325px;
+  margin: auto;
+}
+
+.signup-form {
+  width: 325px;
+  margin: auto;
 }
 
 form label {
@@ -115,9 +125,12 @@ footer {
 
 /* edit-post.handlebar MVP */
 .edit-post-form {
-  width: 500px;
+  width: 50%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
   padding: 10px;
-  border: 2px solid black;
 }
 .edit-post-form input {
   width: 350px;
