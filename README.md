@@ -66,13 +66,15 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Tests
 
 All routes have been thoroughly tested through insomnia
-![homescreen](./images/screenshot-heroku-app.png)
+![login](./images/login-signup.png)
 
-![login](./images/screenshot-heroku-login.png)
+![homescreen](./images/homepage.png)
 
-![single](./images/screenshot-heroku-single.png)
+![dashboard](./images/dashboard.png)
 
-![create](./images/screenshot-heroku-add.png)
+![single](./images/single.png)
+
+![create](./images/new-post.png)
 
 
 ## Questions

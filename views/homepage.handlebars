@@ -1,7 +1,8 @@
 <div class = "container-homepage">
+  <h2>Check out all the amazing photos below or head over to your dashboard and post some of your own for others to see!</h2>
   <ul class="homepage-posts" style="list-style-type: none">
     {{#each posts as |post|}}
-    <li class="user-post post-container">
+    <li class="user-post">
       {{> post-info post }}
     </li>
     {{/each}}
