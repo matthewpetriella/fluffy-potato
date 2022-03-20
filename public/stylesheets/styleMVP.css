@@ -9,6 +9,14 @@ body {
 }
 
 /* login.handlebars MVP */
+.wrapper {
+  width: 50%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
 
 .container-login {
   margin: auto;
@@ -22,7 +30,79 @@ body {
   margin: auto;
 }
 
+.container-edit {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-list {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-blog {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-post {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-comments {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
 .container-error {
+  width: 50%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-home {
+  width: 50%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-newPost {
+  width: 50%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-single {
   width: 50%;
   margin: auto;
   border: 2px solid white;
@@ -72,7 +152,7 @@ header {
   width: 100%;
   margin: auto;
   border: 2px solid white;
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(206, 152, 81);
   margin-bottom: 30px;
 }
 
@@ -124,12 +204,16 @@ footer {
 /* new-post.handlebars MVP */
 
 .new-post-form {
-  width: 500px;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
   padding: 10px;
-  border: 2px solid black;
 }
 .new-post-form input {
-  width: 350px;
+  width: 75%;
+  margin: auto;
 }
 
 /* edit-post.handlebar MVP */
@@ -182,7 +266,12 @@ footer {
 /* post-info.handlebars MVP */
 
 .post {
-  border: 2px solid black;
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 /*overall styling forMVP*/

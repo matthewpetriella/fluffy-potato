@@ -1,45 +1,47 @@
 
-<article class="post-edit">
-  <a href="/dashboard"> Return to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
-    {{!-- form populated with existing info by default --}}
+<div class = "container-edit">
+  <article class="post-edit">
+    <a href="/dashboard"> Return to dashboard</a>
+    <h2>
+      Edit Post
+    </h2>
+    <form class="edit-post-form">
+      {{!-- form populated with existing info by default --}}
+      <div>
+        <input name="post-title" type="text" value="{{post.title}}" />
+      </div>
+      <div>
+          <input type="text" name="post-text" value="{{post.description}}" />
+      </div>
+
+      <label for="image-url">Photo:</label><br />
+      <div id="image-url-wrap">
+        <input
+          class="post-input"
+          type="text"
+          name="image-url"
+          placeholder="{{post.image_url}}"
+        />&nbsp;or&nbsp;<button id="upload-image">Upload NewPhoto</button>
+      </div>
+
+
+      <img class="place-image" src="{{post.image_url}}"/>
+      </br>
+      <button type="submit">Save post</button>
+      <button type="button" class="delete-btn">Delete post</button>
+    </form>
+  </article>
+  {{!-- included comment form and submit button --}}
+  <form class="comment-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
+      <textarea name="comment-body"></textarea>
     </div>
+
     <div>
-        <input type="text" name="post-text" value="{{post.description}}" />
+      <button type="submit">add comment</button>
     </div>
-
-    <label for="image-url">Photo:</label><br />
-    <div id="image-url-wrap">
-      <input
-        class="post-input"
-        type="text"
-        name="image-url"
-        placeholder="{{post.image_url}}"
-      />&nbsp;or&nbsp;<button id="upload-image">Upload NewPhoto</button>
-    </div>
-
-
-    <img class="place-image" src="{{post.image_url}}"/>
-    </br>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-btn">Delete post</button>
   </form>
-</article>
-{{!-- included comment form and submit button --}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
+</div>
 {{!-- render available comments --}}
 {{> comments  post.comments }}
 <script
@@ -49,3 +51,4 @@
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
+

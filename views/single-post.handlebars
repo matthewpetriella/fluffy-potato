@@ -1,40 +1,42 @@
 {{!-- provides a link back to dashboard --}}
 
-<a href="/dashboard"> Return to dashboard</a>
-  <br>
-  <br>
-{{!-- uses post-extend to give more info on the post --}}
-<div class="post-wrapper">
+<div class = "container-single">
+  <a href="/dashboard"> Return to dashboard</a>
+    <br>
+    <br>
+  {{!-- uses post-extend to give more info on the post --}}
+  <div class="post-wrapper">
 
-<ul class="dashboard-posts" style="list-style-type:none;">
-      <li class="user-post post-container">
-        {{!-- brings in the partial --}}
-        {{> post-info post}}
-        {{!-- link to post edit page with specific post by id --}}
-        
-      </li>
-    </ul>
+  <ul class="dashboard-posts" style="list-style-type:none;">
+        <li class="user-post post-container">
+          {{!-- brings in the partial --}}
+          {{> post-info post}}
+          {{!-- link to post edit page with specific post by id --}}
+
+        </li>
+      </ul>
 
 
 
-{{!-- conditional only shows add comment if logged in --}}
-{{#if loggedIn}}
-<form class="comment-form">
+  {{!-- conditional only shows add comment if logged in --}}
+  {{#if loggedIn}}
+  <form class="comment-form">
+    <div>
+      <textarea class="text-area" name="comment-body"></textarea>
+    </div>
+
+    <div>
+      <button type="submit">Add Comment</button>
+    </div>
+  </form>
+  {{/if}}
   <div>
-    <textarea class="text-area" name="comment-body"></textarea>
-  </div>
 
-  <div>
-    <button type="submit">Add Comment</button>
+    <h4 class="comments">Comments:</h4>
+    {{> comments  post.comments }}
   </div>
-</form>
-{{/if}}
-<div>
-
-  <h4 class="comments">Comments:</h4>
-  {{> comments  post.comments }}
 </div>
 
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-{{/if}}
+  {{#if loggedIn}}
+  <script src="/javascript/comment.js"></script>
+  {{/if}}
