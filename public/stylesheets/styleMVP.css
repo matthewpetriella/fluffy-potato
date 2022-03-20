@@ -8,123 +8,16 @@ body {
   background-color: #d8d8d8de;
 }
 
+.container {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
 /* login.handlebars MVP */
-.wrapper {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-login {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-signup {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-comment {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-edit {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-list {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-blog {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-post {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-comments {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-error {
-  width: 50%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-home {
-  width: 50%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-newPost {
-  width: 50%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.container-single {
-  width: 50%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
-}
 
 form {
   width: 75%;
