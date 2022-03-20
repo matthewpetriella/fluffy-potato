@@ -10,7 +10,7 @@ body {
 
 /* login.handlebars MVP */
 .wrapper {
-  width: 50%;
+  width: 75%;
   margin: auto;
   border: 2px solid white;
   background-color: rgb(228, 228, 228);
@@ -19,15 +19,30 @@ body {
 }
 
 .container-login {
+  width: 75%;
   margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .container-signup {
+  width: 75%;
   margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .container-comment {
+  width: 75%;
   margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .container-edit {
@@ -112,7 +127,7 @@ body {
 }
 
 form {
-  width: 50%;
+  width: 75%;
   margin: auto;
   border: 2px solid white;
   background-color: rgb(228, 228, 228);
@@ -121,12 +136,12 @@ form {
 }
 
 .login-form {
-  width: 325px;
+  width: 75%;
   margin: auto;
 }
 
 .signup-form {
-  width: 325px;
+  width: 75%;
   margin: auto;
 }
 
@@ -218,7 +233,7 @@ footer {
 
 /* edit-post.handlebar MVP */
 .edit-post-form {
-  width: 50%;
+  width: 75%;
   margin: auto;
   border: 2px solid white;
   background-color: rgb(228, 228, 228);
