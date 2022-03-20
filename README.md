@@ -1,4 +1,4 @@
-
+![Alt](/public/images/favicon.ico "Title")
 # Fluffy Potato Photos
 
 ![License](https://img.shields.io/badge/license-MIT-yellow.png)
@@ -10,6 +10,8 @@ Fluffy Potato is a photo sharing application that allows photo lovers to share p
 ## Table of Contents
 
 *[Installation](#installation)
+
+*[Technologies Used](#technologies-used)
 
 *[Usage](#usage)
 
@@ -26,6 +28,29 @@ Fluffy Potato is a photo sharing application that allows photo lovers to share p
 ## Installation
 
 The application can be used as deployed to Heroku [HERE](https://rocky-river-85271.herokuapp.com/).  If you want to check the application out on local, please start by cloning the repo and running npm install to get all dependencies.  Once that process is completed, simply type npm start in the command line and the server will start on port 3000.  Visit localhost:3000 to see the running application.
+
+## Technologies Used
+
+-bcrypt
+
+-cloudinary
+
+-connect-session-sequelize
+
+-dotenv
+
+-express
+
+-express-handlebars
+
+-express-session
+
+-mysql2
+
+-path
+
+-sequelize
+
 
 ## Usage
 
