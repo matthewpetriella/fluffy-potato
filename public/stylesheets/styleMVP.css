@@ -8,7 +8,106 @@ body {
   background-color: #d8d8d8de;
 }
 
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  max-width: 1200px;
+}
+
 .container {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-comments {
+  width: 100%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-postInfo {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-dashboard {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-editComment {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-editPost {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-error {
+  width: 75%;
+  margin: auto;
+  border: 2px solid white;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-homepage {
+  width: 75%;
+  margin: auto;
+  background-color: rgb(228, 228, 228);
+  padding: 10px;
+}
+
+.container-login {
+  width: 75%;
+  margin: auto;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-signup {
+  width: 75%;
+  margin: auto;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.container-singlePost {
   width: 75%;
   margin: auto;
   border: 2px solid white;
@@ -90,35 +189,19 @@ footer {
   font-size: 110%;
 }
 
-/* homepage.handlebars MVP */
-
-.post-list {
-  margin: 0;
-  padding: 0;
-  max-width: 350px;
+.text-area {
+  width: 100%;
 }
 
-.post {
-  margin-bottom: 2%;
-  line-height: 150%;
-}
-
-.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
+.form-input {
+  width: 100%;
 }
 
 /* new-post.handlebars MVP */
-
-.new-post-form {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
+.section-new-post h2 {
+  text-align: center;
 }
+
 .new-post-form input {
   width: 75%;
   margin: auto;
@@ -133,27 +216,16 @@ footer {
   margin-bottom: 30px;
   padding: 10px;
 }
-.edit-post-form input {
-  width: 350px;
-}
+
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
 }
 
 /* comments.handlebars MVP */
-.comment-form {
-  margin-bottom: 5%;
-  width: 100%;
-  margin-top: 5rem;
-}
-
-.text-area {
-  width: 100%;
-}
 
 .comment {
-  width: 75%;
+  width: 100%;
   margin: auto;
   border: 2px solid white;
   background-color: rgb(228, 228, 228);
@@ -169,17 +241,6 @@ footer {
   font-size: 90%;
   margin-bottom: 0.5%;
   opacity: 0.6;
-}
-
-/* post-info.handlebars MVP */
-
-.post {
-  width: 75%;
-  margin: auto;
-  border: 2px solid white;
-  background-color: rgb(228, 228, 228);
-  margin-bottom: 30px;
-  padding: 10px;
 }
 
 /*overall styling forMVP*/
@@ -227,15 +288,6 @@ textarea {
   min-height: 100px;
 }
 
-.wrapper {
-  width: 100%;
-  min-height: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
 main {
   flex: 1;
   padding: 2% 4%;
@@ -259,38 +311,8 @@ main {
   color: #3486eb;
 }
 
-.dashboard-posts .post {
-  max-width: 350px;
-}
-.homepage-posts .post {
-  max-width: 350px;
-}
-
-
-.post-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 2rem;
-  justify-items: center;
-}
-
-.post-left {
-  grid-column: 1;
-  grid-row: 2/3;
-  margin: 0 2rem 0 1.5rem;
-}
-
-.post-right {
-  grid-column: 2/4;
-  grid-row: 1/4;
-}
-
-.post-edit-link {
-  /* grid-column: 2/3; */
-  grid-row: 4/5;
-}
-
 .place-image {
+  width: 100%;
   padding: .5rem;
 }
 
